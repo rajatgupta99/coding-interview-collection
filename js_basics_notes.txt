@@ -1,0 +1,102 @@
+##Data types
+There are eight basic data types in JavaScript.
+
+1. Number
+2. BigInt: In JavaScript, the “number” type cannot represent integer values larger than 253 (or less than -253 for negatives)
+3. String
+4. Boolean: true or false
+5. null
+6. undefined
+7. Object
+8. Symbol
+
+Note: We can use typeof() operator to check the data type.
+
+
+
+##String Methods
+1. str.length
+
+Finding a string part
+2. str.indexOf('hello') - Returns the first index of the text occurance in the string
+3. str.lastIndexOf('hello') -  Returns the last index of the text occurance in the string
+
+Searching a String
+4. str.search('hello') - Searches and returns the position of the match. Use this for powerful search like regex instead of indexOf()
+
+Extracting String Parts
+5. str.slice(start, end) - extracts a part of a string and returns the extracted part in a new string.
+6. str.substring(start, end) - substring() is similar to slice(). The difference is that substring() cannot accept negative indexes.
+7. str.substr(start, length) - substr() is similar to slice(). The difference is that the second parameter specifies the length of the extracted part.
+
+Replacing String Content
+8. str.replace(toReplace, newValue) - The replace() method replaces a specified value with another value in a string
+
+Converting to Upper and Lower Case
+9. str.toUpperCase()
+10. str.toLowerCase()
+
+The concat() Method
+11. str.conact() - concat() joins two or more strings
+
+Remove Whitespaces
+12. str.trim() -  trim() method removes whitespace from both sides of a string
+
+Extracting String Characters
+13. str.charAt(position)
+14. str.charCodeAt() - charCodeAt() method returns the unicode of the character at a specified index in a string.
+15. str[index] - ECMAScript 5 (2009) allows property access [ ] on strings
+
+
+
+##Logical Operators
+
+1. || => OR
+2. && => AND
+3. ! => NOT
+
+
+
+##Type Conversion
+1. String Conversion: String(value)
+2. Numeric Conversion: Number(value)
+3. Boolean Conversion: Boolean(value)
+
+
+
+## Loops
+1. While:
+while(true){
+
+}
+
+2. Do While:
+do{
+
+}while();
+
+2. For:
+for(let i=0; i<10; i++){
+
+}
+
+Note: We can break the loop using break; statement
+
+
+
+##Functions
+
+1. Function Declaration:
+function hello(){
+
+}
+
+2. Function Expression
+let hello = function(){
+
+};
+
+3. Arrow Function
+let hello = () => {
+
+};
