@@ -84,10 +84,21 @@ do{
 
 }while();
 
-2. For:
+3. For:
 for(let i=0; i<10; i++){
 
 }
+
+4. for in loop: - It iterates over the list of elements and returns the key 
+for(let key in object){
+
+}
+
+5. for of loop: - It iterates over the list of elements and returns the value instead of returning the key
+for(let value of array){
+
+}
+
 
 Note: We can break the loop using break; statement
 
@@ -109,3 +120,80 @@ let hello = function(){
 let hello = () => {
 
 };
+
+
+
+###Objects
+Objects are defined using curly braces {}
+
+Methods etc available on objects:
+1. in - User to check for existence of a key in the object
+Eg: key in object
+
+2. for in loop - Executes the for loop for every key in the object
+for(let key in object){
+    ...do something
+}
+
+- Order of data retrieval from objects:
+If key are integer then data is store in ascending Order.
+If keys are non-integer then data is stores in the same order as inserted.
+
+- Difference between Object and other JS datatypes:
+Objects in JS are reference types whereas other datatypes in js are value type.
+
+
+
+##Maps
+1. Creating a new map:
+var map = new Map();
+
+2. Setting a new value inside the map
+map.set(key, value);
+
+3. Getting a value from the map
+map.get(key);
+
+4. Checking the size of the map
+map.size;
+
+5. Getting all the keys of the map. But this returns a iterator object, so it cannot be displayed as is and should be displayed using a iterator.
+map.keys();
+eg:
+for(let key of map.keys()){
+    console.log(key);
+}
+
+6. Getting all the values of the map. But this returns a iterator object, so it cannot be displayed as is and should be displayed using a iterator.
+map.values();
+eg:
+for(let value of map.values){
+    console.log(value);
+}
+
+7. Iterating and getting both key and value from the map:
+for(let [key, value] of map){
+
+}
+
+
+
+##Sets
+Sets are used to store the unique values
+
+1. Creating a new set
+var sets = new Set();
+
+2. Adding a value to a set
+set.add(Value);
+
+3. Getting values from set - Note: Sets are iterable objects, we have to iterate over sets to get the values
+for(let value of sets){
+
+}
+
+4. Checking if value exists in set or not
+sets.has(Value);
+
+5. Check the size of the set
+sets.size;
