@@ -49,6 +49,15 @@ Extracting String Characters
 
 
 
+##Regex Methods
+
+1. str.search(Regex/Pattern) - search() method searches a string for a specified value and returns the position of the match.
+2. str.replace(To replace Regex/Pattern, New Pattern) - replace() method replaces a specified value with another value in a string.
+3. regex.test(String) - test() searches a string for a pattern, and returns true or false, depending on the result.
+4. regex.exec(String) - searches a string for a specified pattern, and returns the found text as an object.
+
+
+
 ##Logical Operators
 
 1. || => OR
