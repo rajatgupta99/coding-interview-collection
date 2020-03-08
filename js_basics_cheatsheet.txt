@@ -6,9 +6,9 @@ There are eight basic data types in JavaScript.
 3. String
 4. Boolean: true or false
 5. null
-6. undefined
-7. Object
-8. Symbol
+6. undefined 
+7. Symbol
+8. Object
 
 Note: We can use typeof() operator to check the data type.
 
@@ -101,6 +101,9 @@ for(let value of array){
 
 
 Note: We can break the loop using break; statement
+- When we need to iterate over an array – we can use forEach, for or for..of.
+- When we need to iterate and return the data for each element – we can use map
+- arr.reduce() - It is used to reduce and calculate a single value based on the array
 
 
 
@@ -144,7 +147,7 @@ Objects in JS are reference types whereas other datatypes in js are value type.
 
 
 
-##Maps
+##Maps : Key Value Pair
 1. Creating a new map:
 var map = new Map();
 
@@ -178,7 +181,7 @@ for(let [key, value] of map){
 
 
 
-##Sets
+##Sets : Contains unique values only
 Sets are used to store the unique values
 
 1. Creating a new set
@@ -197,3 +200,64 @@ sets.has(Value);
 
 5. Check the size of the set
 sets.size;
+
+
+
+##Array
+
+Add/remove items
+1. arr.push(..items) - Adds items to the end of the array
+2. arr.pop() - Remove the item from the end of the array
+3. arr.shift() - Removes an item from the beginning of the array
+4. arr.unshift() - Adds item to the beginning of the array
+5. arr.splice(startInex, no Of Elements to remove, list of elememts to add after removal) - This method can do everything: insert, remove and replace elements.
+6. arr.slice(startIndex, endIndex) - Creates a new array with the start and end index values.
+7. arr.concat([new values]) - Creates a new array which includes the values from arr plus additionally provided values.
+
+Iterate over an Array
+8. arr.forEach((item, index, array) => {
+    //Do something with the array values
+});
+
+Searching in Array
+9. arr.indexOf(item, from) - Searches and returns the index of item starting from index from, if available in the array else returns -1
+10. arr.lastIndexOf(item, from) - Same as indexOf except it starts searching from right to left
+11. arr.includes(item, from) - Searches for the item from the index starting from, returns true if found
+12. arr.find(item => item.id == 1) - It return the item if the value is found and stops the iteration, else undefined is returned
+13. arr.findIndex() - It returns the index if value is found else returns -1
+14. arr.filter( item => item.id < 3) - Returns an array containing the values matching the condition.
+
+Transform an Array
+15. arr.map() - It calls the function for each element of the array and returns the array of results.
+16. arr.sort()  - Sorts the array, elements are converted to strings for comparisons. We should provide our own function as argument if we want to sort the array using our own logic.
+Eg:
+function compareNumeric(a, b) {
+  if (a > b) return 1;
+  if (a == b) return 0;
+  if (a < b) return -1;
+}
+
+let arr = [ 1, 2, 15 ];
+
+arr.sort(compareNumeric);
+
+alert(arr);  // 1, 2, 15
+
+17. arr.reverse() - Reverses the order of the array
+18. arr.split(delimiter) - It splits the string into an array by the given delimiter
+19. arr.join(delimiter) - Does the reverse to split. It creates a string of arr items joined by glue between them.
+20. arr.reduce() - It is used to reduce and calculate a single value based on the array
+Eg:
+let value = arr.reduce(function(accumulator, item, index, array) {
+  // ...
+}, [initial]);
+
+--
+let arr = [1, 2, 3, 4, 5];
+
+let result = arr.reduce((sum, current) => sum + current, 0);
+
+alert(result); // 15
+
+21. arr.reduceRight() - Does the same as reduce(), but goes from right to left.
+22. arr.isArray() - It returns true if the value is an array, and false otherwise.
