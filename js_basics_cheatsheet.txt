@@ -14,6 +14,21 @@ Note: We can use typeof() operator to check the data type.
 
 
 
+##Number
+Rounding Numbers
+1. Math.floor() - Rounds to the lower bound. Rounds down: 3.1 becomes 3
+2. Math.ceil() - Rounds to the upper bound. Rounds up: 3.1 becomes 4
+3. Math.round() - Rounds to the nearest value. Rounds to the nearest integer: 3.1 becomes 3, 3.6 becomes 4
+4. Match.trunc() - Removes anything after the decimal point without rounding
+5. num.toFixed(decimals points) - Rounds the number to n digits after the point and returns a string representation of the result.
+
+Other Match Functions
+6. Math.random() - Returns a random number from 0 to 1 
+7. Math.max(arguments) - Returns the max number from the provide argument
+8. Math.pow(base, exponent) - Returns n raised the given power
+
+
+
 ##String Methods
 1. str.length
 
@@ -73,7 +88,7 @@ Extracting String Characters
 
 
 
-## Loops
+##Loops
 1. While:
 while(true){
 
@@ -98,6 +113,11 @@ for(let key in object){
 for(let value of array){
 
 }
+
+6. forEach - Can be used to iterate over Array/Objects etc
+arr.forEach((item, index, array) => {
+    //Do something with the array values
+});
 
 
 Note: We can break the loop using break; statement
@@ -126,7 +146,7 @@ let hello = () => {
 
 
 
-###Objects
+##Objects
 Objects are defined using curly braces {}
 
 Methods etc available on objects:
@@ -157,24 +177,33 @@ map.set(key, value);
 3. Getting a value from the map
 map.get(key);
 
-4. Checking the size of the map
+4. Checking if the key exists in the map - Returns true or false
+map.has(key);
+
+5. Deleting a key from the map
+map.delete(key)
+
+6. Clear the entire map
+map.clear()
+
+7. Checking the size of the map
 map.size;
 
-5. Getting all the keys of the map. But this returns a iterator object, so it cannot be displayed as is and should be displayed using a iterator.
+8. Getting all the keys of the map. But this returns a iterator object, so it cannot be displayed as is and should be displayed using a iterator.
 map.keys();
 eg:
 for(let key of map.keys()){
     console.log(key);
 }
 
-6. Getting all the values of the map. But this returns a iterator object, so it cannot be displayed as is and should be displayed using a iterator.
+9. Getting all the values of the map. But this returns a iterator object, so it cannot be displayed as is and should be displayed using a iterator.
 map.values();
 eg:
 for(let value of map.values){
     console.log(value);
 }
 
-7. Iterating and getting both key and value from the map:
+10. Iterating and getting both key and value from the map:
 for(let [key, value] of map){
 
 }
@@ -200,6 +229,12 @@ sets.has(Value);
 
 5. Check the size of the set
 sets.size;
+
+6. Deleting value from the set
+set.delete(value)
+
+7. Clearing all the values from the set
+set.clear()
 
 
 
@@ -261,3 +296,10 @@ alert(result); // 15
 
 21. arr.reduceRight() - Does the same as reduce(), but goes from right to left.
 22. arr.isArray() - It returns true if the value is an array, and false otherwise.
+
+
+
+##JSON
+
+1. JSON.stringify(object) - Converts an object to JSON
+2. JSON.parse(string) - Converts JSON to an Object
