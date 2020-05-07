@@ -6,7 +6,7 @@ There are eight basic data types in JavaScript.
 3. String
 4. Boolean: true or false
 5. null
-6. undefined 
+6. undefined
 7. Symbol
 8. Object
 
@@ -23,10 +23,14 @@ Rounding Numbers
 5. num.toFixed(decimals points) - Rounds the number to n digits after the point and returns a string representation of the result.
 
 Other Match Functions
-6. Math.random() - Returns a random number from 0 to 1 
+6. Math.random() - Returns a random number from 0 to 1
 7. Math.max(arguments) - Returns the max number from the provide argument
 8. Math.pow(base, exponent) - Returns n raised the given power
 
+Other Math Functions
+9. Number.MAX_SAFE_INTEGER
+10. Number.MIN_SAFE_INTEGER
+11. isNaN(variable)  -> To check if the value is not a number. Would return true if not a number
 
 
 ##String Methods
@@ -45,7 +49,7 @@ Extracting String Parts
 7. str.substr(start, length) - substr() is similar to slice(). The difference is that the second parameter specifies the length of the extracted part.
 
 Replacing String Content
-8. str.replace(toReplace, newValue) - The replace() method replaces a specified value with another value in a string
+8. str.replace(toReplace/Regex, newValue) - The replace() method replaces a specified value with another value in a string
 
 Converting to Upper and Lower Case
 9. str.toUpperCase()
@@ -65,11 +69,8 @@ Extracting String Characters
 
 
 ##Regex Methods
-
-1. str.search(Regex/Pattern) - search() method searches a string for a specified value and returns the position of the match.
-2. str.replace(To replace Regex/Pattern, New Pattern) - replace() method replaces a specified value with another value in a string.
-3. regex.test(String) - test() searches a string for a pattern, and returns true or false, depending on the result.
-4. regex.exec(String) - searches a string for a specified pattern, and returns the found text as an object.
+1. regex.test(String) - test() searches a string for a pattern, and returns true or false, depending on the result.
+2. regex.exec(String) - searches a string for a specified pattern, and returns the found text as an object.
 
 
 
@@ -104,7 +105,7 @@ for(let i=0; i<10; i++){
 
 }
 
-4. for in loop: - It iterates over the list of elements and returns the key 
+4. for in loop: - It iterates over the list of elements and returns the key
 for(let key in object){
 
 }
@@ -214,27 +215,27 @@ for(let [key, value] of map){
 Sets are used to store the unique values
 
 1. Creating a new set
-var sets = new Set();
+var set = new Set();
 
 2. Adding a value to a set
 set.add(Value);
 
-3. Getting values from set - Note: Sets are iterable objects, we have to iterate over sets to get the values
-for(let value of sets){
+3. Checking if value exists in set or not
+set.has(Value);
 
-}
+4. Check the size of the set
+set.size;
 
-4. Checking if value exists in set or not
-sets.has(Value);
-
-5. Check the size of the set
-sets.size;
-
-6. Deleting value from the set
+5. Deleting value from the set
 set.delete(value)
 
-7. Clearing all the values from the set
+6. Clearing all the values from the set
 set.clear()
+
+7. Getting values from set - Note: Sets are iterable objects, we have to iterate over sets to get the values
+for(let value of set){
+
+}
 
 
 
@@ -248,23 +249,24 @@ Add/remove items
 5. arr.splice(startInex, no Of Elements to remove, list of elememts to add after removal) - This method can do everything: insert, remove and replace elements.
 6. arr.slice(startIndex, endIndex) - Creates a new array with the start and end index values.
 7. arr.concat([new values]) - Creates a new array which includes the values from arr plus additionally provided values.
+8. arr.length - Returns the length of the array
 
 Iterate over an Array
-8. arr.forEach((item, index, array) => {
+9. arr.forEach((item, index, array) => {
     //Do something with the array values
 });
 
 Searching in Array
-9. arr.indexOf(item, from) - Searches and returns the index of item starting from index from, if available in the array else returns -1
-10. arr.lastIndexOf(item, from) - Same as indexOf except it starts searching from right to left
-11. arr.includes(item, from) - Searches for the item from the index starting from, returns true if found
-12. arr.find(item => item.id == 1) - It return the item if the value is found and stops the iteration, else undefined is returned
-13. arr.findIndex() - It returns the index if value is found else returns -1
-14. arr.filter( item => item.id < 3) - Returns an array containing the values matching the condition.
+10. arr.indexOf(item, from) - Searches and returns the index of item starting from index from, if available in the array else returns -1
+11. arr.lastIndexOf(item, from) - Same as indexOf except it starts searching from right to left
+12. arr.includes(item, from) - Searches for the item from the index starting from, returns true if found
+13. arr.find(item => item.id == 1) - It return the item if the value is found and stops the iteration, else undefined is returned
+14. arr.findIndex() - It returns the index if value is found else returns -1
+15. arr.filter( item => item.id < 3) - Returns an array containing the values matching the condition.
 
 Transform an Array
-15. arr.map() - It calls the function for each element of the array and returns the array of results.
-16. arr.sort()  - Sorts the array, elements are converted to strings for comparisons. We should provide our own function as argument if we want to sort the array using our own logic.
+16. arr.map() - It calls the function for each element of the array and returns the array of results.
+17. arr.sort()  - Sorts the array, elements are converted to strings for comparisons. We should provide our own function as argument if we want to sort the array using our own logic.
 Eg:
 function compareNumeric(a, b) {
   if (a > b) return 1;
@@ -278,10 +280,10 @@ arr.sort(compareNumeric);
 
 alert(arr);  // 1, 2, 15
 
-17. arr.reverse() - Reverses the order of the array
-18. arr.split(delimiter) - It splits the string into an array by the given delimiter
-19. arr.join(delimiter) - Does the reverse to split. It creates a string of arr items joined by glue between them.
-20. arr.reduce() - It is used to reduce and calculate a single value based on the array
+18. arr.reverse() - Reverses the order of the array
+19. arr.split(delimiter) - It splits the string into an array by the given delimiter
+20. arr.join(delimiter) - Does the reverse to split. It creates a string of arr items joined by glue between them.
+21. arr.reduce() - It is used to reduce and calculate a single value based on the array
 Eg:
 let value = arr.reduce(function(accumulator, item, index, array) {
   // ...
@@ -294,8 +296,8 @@ let result = arr.reduce((sum, current) => sum + current, 0);
 
 alert(result); // 15
 
-21. arr.reduceRight() - Does the same as reduce(), but goes from right to left.
-22. arr.isArray() - It returns true if the value is an array, and false otherwise.
+22. arr.reduceRight() - Does the same as reduce(), but goes from right to left.
+23. arr.isArray() - It returns true if the value is an array, and false otherwise.
 
 
 
