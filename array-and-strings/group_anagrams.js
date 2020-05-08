@@ -20,9 +20,29 @@ Helper Notes:
 
 
 /**
- * @param {string} s
- * @return {boolean}
+ * @param {string[]} strs
+ * @return {string[][]}
  */
-var validPalindrome = function(s) {
+var groupAnagrams = function(strs) {
     
+  let map = new Map();
+  
+  for(let str of strs){
+      let arr = Array(26).fill(0);
+      
+      for(let i = 0; i < str.length; i++){
+          arr[str.charCodeAt(i) - 97] += 1;
+      }
+      
+      let keyHash = arr.join('');
+      
+      if(map.has(keyHash)){
+          map.get(keyHash).push(str);
+      }else{
+          map.set(keyHash, [str]);
+      }
+  }
+  return Array.from(map.values());
 };
+
+console.log(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]));
