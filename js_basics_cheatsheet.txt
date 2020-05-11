@@ -30,6 +30,8 @@ Other Match Functions
 Other Math Functions
 9. Number.MAX_SAFE_INTEGER
 10. Number.MIN_SAFE_INTEGER
+11. Number.MAX_VALUE
+12. Number.MIN_VALE
 11. isNaN(variable)  -> To check if the value is not a number. Would return true if not a number
 
 
