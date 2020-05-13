@@ -39,22 +39,21 @@ var isOneEditDistance = function(s, t) {
     let ns = s.length;
     let nt = t.length;
 
-    //s should be shorter than t
     if(ns > nt) return isOneEditDistance(t, s);
 
-    //Difference of distance cannot be more than 1 since we are only looking for 1 edit distance
-    if((nt - nt) > 1) return false;
+    if((nt - ns) > 1) return false;
 
     for(let i = 0; i < ns; i++){
         if(s[i] != t[i]){
-            //If both string of same length
+
             if(ns === nt){
-                return s[i + 1] === t[i + 1];
+                return (s.substring(i + 1) === t.substring(i + 1));
             }else{
-                return s[i] === t[i +1];
+                //If t is one char longer than s
+                return (s.substring(i) === t.substring(i + 1));
             }
         }
     }
-    
+
     return (ns + 1 === nt);
 };

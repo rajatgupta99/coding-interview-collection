@@ -1,8 +1,7 @@
 /*
 Question:
-Read N Characters Given Read4
-Given a file and assume that you can only read the file using a given method read4, implement a method to read n characters.
-
+Read N Characters Given Read4 II - Call multiple times
+Given a file and assume that you can only read the file using a given method read4, implement a method read to read n characters. Your method read may be called multiple times.
 
 Method read4:
 The API read4 reads 4 consecutive characters from the file, then writes those characters into the buffer array buf.
@@ -34,30 +33,26 @@ Note: buf[] is destination not source, you will need to write the results to buf
  
 
 Example 1:
-Input: file = "abc", n = 4
-Output: 3
-Explanation: After calling your read method, buf should contain "abc". We read a total of 3 characters from the file, so return 3. Note that "abc" is the file's content, not buf. buf is the destination buffer that you will have to write the results to.
+File file("abc");
+Solution sol;
+// Assume buf is allocated and guaranteed to have enough space for storing all characters from the file.
+sol.read(buf, 1); // After calling your read method, buf should contain "a". We read a total of 1 character from the file, so return 1.
+sol.read(buf, 2); // Now buf should contain "bc". We read a total of 2 characters from the file, so return 2.
+sol.read(buf, 1); // We have reached the end of file, no more characters can be read. So return 0.
 
 Example 2:
-Input: file = "abcde", n = 5
-Output: 5
-Explanation: After calling your read method, buf should contain "abcde". We read a total of 5 characters from the file, so return 5.
-
-Example 3:
-Input: file = "abcdABCD1234", n = 12
-Output: 12
-Explanation: After calling your read method, buf should contain "abcdABCD1234". We read a total of 12 characters from the file, so return 12.
-
-Example 4:
-Input: file = "leetcode", n = 5
-Output: 5
-Explanation: After calling your read method, buf should contain "leetc". We read a total of 5 characters from the file, so return 5.
+File file("abc");
+Solution sol;
+sol.read(buf, 4); // After calling your read method, buf should contain "abc". We read a total of 3 characters from the file, so return 3.
+sol.read(buf, 1); // We have reached the end of file, no more characters can be read. So return 0.
  
 
 Note:
 Consider that you cannot manipulate the file directly, the file is only accesible for read4 but not for read.
-The read function will only be called once for each test case.
+The read function may be called multiple times.
+Please remember to RESET your class variables declared in Solution, as static/class variables are persisted across multiple test cases. Please see here for more details.
 You may assume the destination buffer array, buf, is guaranteed to have enough space for storing n characters.
+It is guaranteed that in a given test case the same buffer buf is called by read.
 
 Helper Notes:
 */
@@ -67,7 +62,7 @@ Helper Notes:
  * Definition for read4()
  * 
  * @param {character[]} buf Destination buffer
- * @return {number} The number of actual characters read
+ * @return {number} The number of characters read
  * read4 = function(buf) {
  *     ...
  * };
@@ -83,22 +78,31 @@ var solution = function(read4) {
      * @param {number} n Number of characters to read
      * @return {number} The number of actual characters read
      */
+    let buff = Array(4);
+    let buffPointer = 0;
+    let buffCount = 0;
     return function(buf, n) {
-        let buff = Array(4);
-        let total = 0;
+        let pointer = 0;
 
-        while(total < n){
-            let buffCount = read4(buff);
-
-            buffCount = Math.min(n - total, buffCount);
-            total += buffCount;
-
-            for(let i =0; i < buffCount; i++){
-                buf.push(buff[i]);
+        while(pointer < n){
+            //Only read if all previously read files have been copied
+            if(buffPointer === 0){
+                buffCount = read4(buff);
             }
 
-            if(buffCount < 4) break;
+            //End of File
+            if(buffCount === 0) break;
+
+            //Copy buff to buf
+            while(pointer < n && buffPointer < buffCount){
+                buf[pointer++] = buff[buffPointer++];
+            }
+
+            //Reset buffPointer to 0 if all buff chars have been read
+            if(buffPointer >= buffCount){
+                buffPointer = 0;
+            }
         }
-        return total;
+        return pointer;
     };
 };
